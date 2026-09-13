@@ -1,0 +1,15 @@
+{
+    // Padrão de indentação deste projeto: 4 espaços, nunca tabulação.
+    // Assim o "Formatar documento" (Shift + Alt + F) mantém tudo alinhado.
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.detectIndentation": false,
+
+    // Não quebrar tags longas em várias linhas — foi isso que
+    // desalinhou o HTML antes.
+    "html.format.wrapLineLength": 0,
+    "html.format.wrapAttributes": "preserve",
+
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true
+}
