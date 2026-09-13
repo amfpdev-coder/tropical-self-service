@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- viewport-fit=cover: usa a tela inteira do iPhone, inclusive em volta do entalhe -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>Tropical Self-Service 2.0 — Comida caseira sem balança em João Pessoa</title>
+    <meta name="description" content="Self-service e marmitaria nos Bancários, João Pessoa. Bufê variado e preparado na hora. Almoço de segunda à sábado.">
+    <meta name="theme-color" content="#3B4A32">
+
+    <!-- Como o link aparece ao ser compartilhado no WhatsApp e redes sociais.
+        O WhatsApp não lê o dados.js: se o preço do almoço mudar, atualize o og:description aqui. -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tropical Self-Service 2.0">
+    <meta property="og:description" content="Self-service à vontade por R$ 20, sem balança. Marmitas para levar. Bancários, João Pessoa.">
+    <meta property="og:locale" content="pt_BR">
+    <!-- TROCAR: precisa ser endereço completo (https://...) depois que o site for publicado -->
+    <meta property="og:image" content="https://SEUSITE.com.br/img/capa.jpg">
+    <meta property="og:url" content="https://SEUSITE.com.br">
+
+    <!-- Ícones: aba do navegador e tela inicial do iPhone -->
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icones/favicon-32.png">
+    <link rel="apple-touch-icon" href="img/icones/apple-touch-icon.png">
+
+    <!-- App instalável (PWA): nome, ícones e cores ficam no manifest.webmanifest -->
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Tropical">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <a class="pular-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- ===================== CABEÇALHO ===================== -->
+    <header class="cabecalho" id="cabecalho">
+        <div class="container cabecalho__interno">
+
+            <a class="marca" href="#topo" aria-label="Tropical Self-Service, início">
+                <!-- Coloque o arquivo em img/logo.jpg. Se faltar, o texto ao lado assume sozinho -->
+                <img class="marca__img" src="img/logo.jpg" alt="" data-opcional>
+                <span class="marca__texto">
+                    <strong class="marca__nome">Tropical</strong>
+                    <span class="marca__sub">Self Service</span>
+                </span>
+            </a>
+
+            <nav class="nav" id="nav" aria-label="Navegação principal">
+                <a href="#bufe">O bufê</a>
+                <a href="#marmitas">Marmitaria</a>
+                <a href="#precos">Preços</a>
+                <a href="#galeria">Fotos</a>
+                <a href="#visite">Visite</a>
+            </nav>
+
+            <div class="cabecalho__acoes">
+                <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Abrir menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <main id="conteudo">
+
+        <!-- ===================== HERO ===================== -->
+        <section class="hero" id="topo">
+            <div class="container hero__grid">
+
+                <div class="hero__texto">
+                    <p class="selo" id="selo-status">
+                        <span class="selo__ponto"></span>
+                        <span id="status-texto">Conferindo horário…</span>
+                    </p>
+
+                    <h1 class="hero__titulo">
+                        Comida caseira,<br>
+                        servida com <em>capricho</em>.
+                    </h1>
+
+                    <p class="hero__lead">
+                        Self-service e marmitaria nos Bancários. Bufê variado todo dia,
+                        preparados na hora.
+                    </p>
+
+                    <div class="hero__acoes">
+                        <a class="btn btn--escuro" href="#" data-link="whatsapp" data-mensagem="pedido" target="_blank" rel="noopener">
+                            Pedir no WhatsApp
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M5 12h14M13 6l6 6-6 6" />
+                            </svg>
+                        </a>
+                        <a class="btn btn--vazado" href="#visite">Como chegar</a>
+                    </div>
+
+                    <ul class="hero__fatos">
+                        <li><strong data-preco="precos.almoco"></strong> à vontade</li>
+                        <li><strong data-dado="horario.resumoDias"></strong> <span data-gerar="resumo-horas"></span></li>
+                        <li><strong data-dado="endereco.bairro"></strong> <span data-dado="endereco.cidade"></span></li>
+                    </ul>
+                </div>
+
+                <div class="hero__midia">
+                    <figure class="moldura">
+                        <img src="img/fachada.jpg" alt="Fachada do Restaurante Tropical, com mesas na calçada" data-opcional>
+                    </figure>
+                    <div class="cartao-flutuante" aria-hidden="true">
+                        <span class="cartao-flutuante__num" data-preco="precos.almoco" data-formato="curto"></span>
+                        <span class="cartao-flutuante__txt">à vontade,<br>sem balança</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===================== FAIXA CORRIDA ===================== -->
+        <div class="faixa" aria-hidden="true">
+            <div class="faixa__trilho">
+                <div class="faixa__grupo">
+                    <span>Bufê variado</span><i>◆</i>
+                    <span>Carnes suculentas</span><i>◆</i>
+                    <span>Saladas frescas</span><i>◆</i>
+                    <span>Marmitas P, M e G</span><i>◆</i>
+                    <span>Sem balança</span><i>◆</i>
+                    <span>Comida de verdade</span><i>◆</i>
+                </div>
+                <div class="faixa__grupo">
+                    <span>Bufê variado</span><i>◆</i>
+                    <span>Carnes suculentas</span><i>◆</i>
+                    <span>Saladas frescas</span><i>◆</i>
+                    <span>Marmitas P, M e G</span><i>◆</i>
+                    <span>Sem balança</span><i>◆</i>
+                    <span>Comida de verdade</span><i>◆</i>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===================== O BUFÊ ===================== -->
+        <section class="secao" id="bufe">
+            <div class="container">
+
+                <header class="secao__cabecalho revelar">
+                    <p class="secao__etiqueta">O bufê</p>
+                    <h2 class="secao__titulo">Tudo feito no dia.<br>Nada de véspera.</h2>
+                    <p class="secao__lead">
+                        A cozinha abre cedo para que o almoço chegue à mesa no ponto.
+                        É comida de casa, no tempero certo, com opção para todo mundo.
+                    </p>
+                </header>
+
+                <div class="cartoes">
+                    <article class="cartao revelar">
+                        <span class="cartao__icone">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M3 11h18M5 11a7 7 0 0 1 14 0M4 15h16M6 19h12" />
+                            </svg>
+                        </span>
+                        <h3>Bufê variado</h3>
+                        <p>Arroz, feijão, carnes, massas, saladas e guarnições que mudam todo dia pra você não enjoar.</p>
+                    </article>
+
+                    <article class="cartao revelar">
+                        <span class="cartao__icone">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M4 18h16M6 18c0-4 2.5-6 6-6s6 2 6 6M9 8c0-1.5 1-2 1.5-3M13 8c0-1.5 1-2 1.5-3" />
+                            </svg>
+                        </span>
+                        <h3>Carne no capricho e saladas deliciosas</h3>
+                        <p>Peixe frito, bolinho de carne, de frango e de peixe e saladas variadas. Tudo bem feito, dourado por fora e suculento por dentro e saladas frescas.</p>
+                    </article>
+
+                    <article class="cartao revelar">
+                        <span class="cartao__icone">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 3v4M8 7h8l-1 4H9L8 7zM7 11h10l-1 8H8l-1-8z" />
+                            </svg>
+                        </span>
+                        <h3>Bebidas geladas para acompanhar</h3>
+                        <p>Sucos gelados naturais, polpas de frutas ou até mesmo um refrigerante bem gelado, servidos com o seu prato.</p>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===================== MARMITARIA ===================== -->
+        <section class="secao secao--clara" id="marmitas">
+            <div class="container divisao">
+
+                <div class="divisao__texto revelar">
+                    <p class="secao__etiqueta">Marmitaria</p>
+                    <h2 class="secao__titulo">Embalhada<br>e pronta para a refeição.</h2>
+                    <p class="secao__lead">
+                        Monte do seu jeito, embale ainda quente. Ideal pra quem tem
+                        uma hora de almoço e não quer abrir mão de comer bem.
+                    </p>
+
+                    <ul class="lista-check">
+                        <li>Você que irá escolher a partir do cardápio</li>
+                        <li>Embalagem que segura o calor</li>
+                        <li>Encomenda por WhatsApp ou ligação</li>
+                        <li>Pagamento feito por WhatsApp</li>
+                        <li>Retirada no local</li>
+                        <li>Entregas por Uber, frete por conta do cliente, ou nas <span data-dado="entrega.diasMotoboy"></span> com o nosso motoboy</li>
+                        <li>Taxa fixa de <span data-preco="entrega.taxa"></span></li>
+                    </ul>
+
+                    <a class="btn btn--escuro" href="#" data-link="whatsapp" data-mensagem="pedido" target="_blank" rel="noopener">
+                        Encomendar marmita
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- Os tamanhos são montados a partir do dados.js -->
+                <div class="divisao__lado revelar" data-gerar="marmitas"></div>
+
+            </div>
+        </section>
+
+        <!-- ===================== PREÇOS ===================== -->
+        <section class="secao" id="precos">
+            <div class="container">
+
+                <header class="secao__cabecalho revelar">
+                    <p class="secao__etiqueta">Preços</p>
+                    <h2 class="secao__titulo">Preço único<br>Sem balança</h2>
+                    <p class="secao__lead">Você se serve à vontade e paga o mesmo, não importa o tamanho do prato.</p>
+                </header>
+
+                <article class="preco preco--destaque preco--largo revelar">
+                    <p class="preco__rotulo">Self-service — almoço no local</p>
+                    <p class="preco__valor" data-preco="precos.almoco" data-formato="cartao"></p>
+                    <p class="preco__unidade">por pessoa, à vontade</p>
+                    <p class="preco__nota">Monte seu prato como quiser, volte quantas vezes precisar. Nada de pesar.</p>
+                </article>
+
+                <p class="secao__etiqueta preco__subtitulo revelar">Marmitas para Retirada ou Encomendas</p>
+
+                <!-- Os cartões são montados a partir do dados.js -->
+                <div class="cartoes" data-gerar="cartoes-marmita"></div>
+
+                <p class="aviso revelar" data-dado="pagamento"></p>
+
+            </div>
+        </section>
+
+        <!-- ===================== GALERIA ===================== -->
+        <section class="secao secao--clara" id="galeria">
+            <div class="container">
+
+                <header class="secao__cabecalho revelar">
+                    <p class="secao__etiqueta">Fotos</p>
+                    <h2 class="secao__titulo">Dá uma olhada.</h2>
+                    <p class="secao__lead">Um pouco do nosso dia a dia. Toque numa foto para ver inteira.</p>
+                </header>
+
+                <!-- As fotos são montadas a partir do dados.js -->
+                <div class="galeria" data-gerar="galeria"></div>
+
+            </div>
+        </section>
+
+        <!-- ===================== VISITE ===================== -->
+        <section class="secao" id="visite">
+            <div class="container divisao">
+
+                <div class="divisao__texto revelar">
+                    <p class="secao__etiqueta">Visite</p>
+                    <h2 class="secao__titulo">Estamos<br>te esperando.</h2>
+
+                    <p class="endereco">
+                        <span data-dado="endereco.rua"></span><br>
+                        <span data-dado="endereco.bairro"></span> · <span data-dado="endereco.cidade"></span>
+                    </p>
+
+                    <div class="hero__acoes">
+                        <a class="btn btn--escuro" href="#" data-link="mapa" target="_blank" rel="noopener">
+                            Abrir no Google Maps
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M5 12h14M13 6l6 6-6 6" />
+                            </svg>
+                        </a>
+                        <a class="btn btn--vazado" href="#" data-link="telefone">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" />
+                            </svg>
+                            Ligar para o restaurante
+                        </a>
+                    </div>
+
+                    <!-- Leva até o botão "Entre em contato", na chamada logo abaixo -->
+                    <a class="visite__dica" href="#contato">
+                        Prefere mandar mensagem? Fale com a gente logo abaixo
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 5v14M6 13l6 6 6-6" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="divisao__lado revelar">
+                    <div class="horarios">
+                        <h3>Horário de funcionamento</h3>
+                        <!-- As linhas são montadas a partir do dados.js -->
+                        <dl data-gerar="horarios"></dl>
+                        <p class="horarios__nota">Marmitas por encomenda no WhatsApp, com retirada no local.</p>
+                    </div>
+
+                    <a class="insta-chamada" href="#" data-link="instagram" target="_blank" rel="noopener">
+                        <span class="insta-chamada__icone">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="3" y="3" width="18" height="18" rx="5.5" />
+                                <circle cx="12" cy="12" r="4.2" />
+                                <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" />
+                            </svg>
+                        </span>
+                        <span class="insta-chamada__texto">
+                            <strong>Veja o cardápio de hoje nos stories</strong>
+                            <span>@<span data-dado="contato.instagram"></span></span>
+                        </span>
+                        <svg class="insta-chamada__seta" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===================== CHAMADA FINAL ===================== -->
+        <section class="chamada" id="contato">
+            <div class="container chamada__interno revelar">
+                <h2>Almoço resolvido.<br>É só chegar.</h2>
+                <p>Ou peça pelo WhatsApp e leve pronto.</p>
+                <a class="btn btn--dourado" href="#" data-link="whatsapp" data-mensagem="contato" target="_blank" rel="noopener">
+                    Entre em contato
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===================== RODAPÉ ===================== -->
+    <footer class="rodape">
+        <div class="container rodape__grid">
+
+            <div class="rodape__marca">
+                <strong>Tropical</strong>
+                <span>Self Service</span>
+                <p>Self-service e marmitaria<br><span data-dado="endereco.bairro"></span> · <span data-dado="endereco.cidade"></span></p>
+            </div>
+
+            <nav class="rodape__links" aria-label="Rodapé">
+                <a href="#bufe">O bufê</a>
+                <a href="#marmitas">Marmitaria</a>
+                <a href="#precos">Preços</a>
+                <a href="#visite">Como chegar</a>
+            </nav>
+
+            <div class="rodape__contato">
+                <a href="#" data-link="instagram" target="_blank" rel="noopener">@<span data-dado="contato.instagram"></span></a>
+                <a href="#" data-link="telefone" data-dado="contato.telefone"></a>
+                <a href="#" data-link="whatsapp" data-mensagem="contato" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+
+        </div>
+        <div class="container rodape__base">
+            <p>© <span id="ano">2026</span> Restaurante Tropical Self Service. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Foto ampliada da galeria. Fica escondida (hidden) até alguém clicar numa foto -->
+    <div class="ampliada" id="ampliada" role="dialog" aria-modal="true" aria-label="Foto ampliada" hidden>
+        <button type="button" class="ampliada__fechar" aria-label="Fechar">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
+        </button>
+
+        <button type="button" class="ampliada__seta ampliada__seta--anterior" aria-label="Foto anterior">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M15 5l-7 7 7 7" />
+            </svg>
+        </button>
+
+        <figure class="ampliada__figura">
+            <img class="ampliada__img" src="" alt="">
+            <figcaption class="ampliada__legenda"></figcaption>
+        </figure>
+
+        <button type="button" class="ampliada__seta ampliada__seta--proxima" aria-label="Próxima foto">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 5l7 7-7 7" />
+            </svg>
+        </button>
+    </div>
+
+    <!-- Botões flutuantes, aparecem depois que a pessoa rola um pouco -->
+    <div class="flutuantes" id="flutuantes">
+        <a class="flutuante flutuante--instagram" href="#" data-link="instagram" target="_blank" rel="noopener" aria-label="Seguir no Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5.5" />
+                <circle cx="12" cy="12" r="4.2" />
+                <circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none" />
+            </svg>
+            <span>Instagram</span>
+        </a>
+
+        <a class="flutuante flutuante--whatsapp" href="#" data-link="whatsapp" data-mensagem="contato" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z" />
+                <path d="M8.5 7.8c.3 0 .5 0 .7.4l.9 2c.1.3 0 .5-.1.7l-.5.6c-.2.2-.2.4 0 .7a7 7 0 0 0 3.3 2.9c.3.1.5.1.7-.1l.6-.7c.2-.2.4-.2.6-.1l2 1c.3.1.4.3.4.6 0 1.2-1 2-2 2-3.6 0-7.7-4.1-7.7-7.7 0-1 .8-2.3 2.1-2.3z" />
+            </svg>
+            <span>WhatsApp</span>
+        </a>
+    </div>
+
+    <!-- A ordem importa: primeiro a ficha de dados, depois quem usa a ficha -->
+    <script src="js/dados.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
