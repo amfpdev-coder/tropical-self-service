@@ -40,7 +40,7 @@ const DADOS = {
         // DIREITO no ponto exato do restaurante. No topo do menu aparecem
         // dois números, tipo -7.14512, -34.84637. Clique neles para copiar
         // e cole aqui entre as aspas.
-        coordenadas: "",
+        coordenadas: "-7.147019726594252, -34.844478639228555",
     },
 
     precos: {
@@ -86,7 +86,6 @@ const DADOS = {
         taxa: 5,
     },
 
-    // TROCAR: confirmar com os donos quais formas de pagamento são aceitas
     pagamento: "Aceitamos dinheiro, Pix, débito e crédito",
 
     horario: {
