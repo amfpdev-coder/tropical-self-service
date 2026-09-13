@@ -137,12 +137,14 @@ function preencherLinks() {
             elemento.href = `tel:+55${DADOS.contato.telefone.replace(/\D/g, "")}`;
         } else if (tipo === "mapa") {
             const e = DADOS.endereco;
-            // Com coordenadas, o mapa abre no ponto exato. Sem elas, o Google
+            // Com o link da página do restaurante, o mapa abre com nome e fotos.
+            // Sem ele, as coordenadas levam ao ponto exato. Sem elas, o Google
             // procura pelo endereço e pode errar o lote.
             const busca = e.coordenadas
                 ? e.coordenadas.replace(/\s/g, "")
                 : `${e.rua} - ${e.bairro}, ${e.cidade}, ${e.cep}`;
-            elemento.href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(busca)}`;
+            elemento.href = e.linkMaps
+                || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(busca)}`;
         }
     });
 }

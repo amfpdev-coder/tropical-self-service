@@ -33,9 +33,15 @@ const DADOS = {
         cidade: "João Pessoa - PB",
         cep: "58051-020",
 
-        // Localização exata para o botão "Abrir no Google Maps".
-        // Sem isso, o Google procura pelo endereço e arredonda o 253B
-        // para o 253 antigo.
+        // Link da página do restaurante no Google Maps, usado pelo botão
+        // "Abrir no Google Maps". Abre com nome, fotos e avaliações.
+        // Como pegar: no Google Maps, abra o restaurante, clique em
+        // Compartilhar → Copiar link e cole aqui entre as aspas.
+        linkMaps: "https://maps.app.goo.gl/FefiJ1pX2Ha4AMxaA",
+
+        // Reserva, usada só se o linkMaps estiver vazio: localização exata
+        // do restaurante. Sem isso também, o Google procura pelo endereço e
+        // arredonda o 253B para o 253 antigo.
         // Como pegar: no Google Maps pelo computador, clique com o botão
         // DIREITO no ponto exato do restaurante. No topo do menu aparecem
         // dois números, tipo -7.14512, -34.84637. Clique neles para copiar
