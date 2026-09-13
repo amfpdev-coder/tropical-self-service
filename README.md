@@ -57,14 +57,12 @@ tela inicial do celular como um app.
 **Com Git:**
 
 ```bash
-git clone https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
-cd SEU-REPOSITORIO
+git clone https://github.com/amfpdev-coder/tropical-self-service.git
+cd tropical-self-service
 ```
 
 **Sem Git:** na página do repositório no GitHub, clique em
 **Code → Download ZIP** e extraia a pasta.
-
-> Troque `SEU-USUARIO/SEU-REPOSITORIO` pelo endereço real do repositório.
 
 ---
 
